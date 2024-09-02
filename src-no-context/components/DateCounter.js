@@ -3,8 +3,6 @@ import { useReducer } from "react";
 const initialState = { count: 0, step: 1 };
 
 function reducer(state, action) {
-  console.log(state, action);
-
   switch (action.type) {
     case "dec":
       return { ...state, count: state.count - state.step };
@@ -15,9 +13,9 @@ function reducer(state, action) {
     case "setStep":
       return { ...state, step: action.payload };
     case "reset":
-      return initialState;
+      return { count: 0, step: 1 };
     default:
-      throw new Error("Unknown action");
+      throw new Error("Error");
   }
 }
 
